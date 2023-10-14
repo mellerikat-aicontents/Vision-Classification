@@ -4,26 +4,16 @@
 
 ## Getting started
 
-```
-git cloen http://mod.lge.com/hub/smartdata/ml-framework/alov2.git
-git checkout release-1.0
-```
+```console 
+git cloen http://mod.lge.com/hub/dxadvtech/aicontents/ic.git
 
-## Use your files
+conda create -n ic python=3.10
+conda activate ic
 
+source install.sh
 
-```
-cd alov2
-cd config
-git pull http://mod.lge.com/hub/dxadvtech/aicontents/ic.git
-
-```
-
-## Use alov2
-
-```
-cd alov2
-python main.py --config {config_path}
+cd alo
+python main.py
 ```
 
 
