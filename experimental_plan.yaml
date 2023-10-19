@@ -1,0 +1,99 @@
+## 외부에서 데이터 가져오기 / 결과 저장하는 경우 해당 위치에 지정
+external_path:
+    - load_train_data_path: /nas001/users/ruci.sung/mnist/train/
+    - load_inference_data_path: /nas001/users/ruci.sung/mnist/test/
+    - save_train_artifacts_path:
+    - save_inference_artifacts_path:
+ 
+external_path_permission:
+    - s3_private_key_file:
+
+## 실험에 필요한 파라미터를 설정함 
+## - 해당 위치에서 삭제되면, code 의 default 로 실행
+user_parameters:
+    - train_pipeline:
+        - step: input  ## 필수
+          args:
+            - input_path: train/
+              x_columns: [image_path,label]
+              data_source_type: batch
+              groupkey_columns: 
+        - step: train
+          args:
+            - model_type: high_resolution # mobilenetv1, high_resolution
+              input_shape: [224, 224, 1]
+              num_classes: 10
+              epochs: 1
+              batch_size: 64
+    - inference_pipeline:
+        - step: input
+          args:
+            - input_path: test/ 
+              x_columns: [image_path,label]
+              data_source_type: batch
+              groupkey_columns:
+        - step: inference
+          args:
+            - none:
+              # model_type: high_resolution # mobilenetv1, high_resolution
+              # input_shape: [224, 224, 1]
+              # num_classes: 10
+              # batch_size: 64
+
+## asset 의 설치 정보를 기록       
+asset_source:
+    - train_pipeline:
+        - step: input
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git
+            # code: local
+            branch: vision
+            requirements:
+              - pillow
+              - pandas==1.5.3
+        - step: train
+          source:
+            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
+            # code: local
+            branch: ic
+            requirements:
+              - requirements.txt 
+              - opencv-python
+              - tensorflow==2.9.0
+              - scikit-optimize
+              - focal-loss
+    - inference_pipeline:
+        - step: input
+          source:  ## git / local 지원
+            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git
+            # code: local
+            branch: vision
+            requirements:
+              - pillow
+        - step: inference
+          source:
+            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
+            # code: local
+            branch: ic
+            requirements:
+              - tensorflow==2.9.0
+              - opencv-python
+              - scikit-optimize
+              - focal-loss
+
+ 
+control:
+    ## 1. 패키지 설치 및 asset 존재 여부를 실험 시마다 체크할지, 한번만 할지 결정
+    ## 1-2 requirements.txt 및 종속 패키지들 한번만 설치할 지 매번 설치할지도 결정 
+    - get_asset_source: once ## once, every
+    # TODO 아래 get_external_data 제작하기
+    - get_external_data: once ## once, every
+    ## 2. 생성된 artifacts 를 backup 할지를 결정 True/False
+    - backup_artifacts: True
+    ## 3. pipeline 로그를 backup 할지를 결정 True/False
+    - backup_log: True
+    ## 4. 저장 공간 사이즈를 결정 (단위 MB)
+    - backup_size: 1000
+ 
+    ## 5. Asset 사이 데이터 전달 방법으로 memory, file 를 지원
+    - interface_mode: memory
