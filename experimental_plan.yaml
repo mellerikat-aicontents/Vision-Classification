@@ -1,7 +1,7 @@
 ## 외부에서 데이터 가져오기 / 결과 저장하는 경우 해당 위치에 지정
 external_path:
-    - load_train_data_path: /nas001/users/ruci.sung/mnist/train/
-    - load_inference_data_path: /nas001/users/ruci.sung/mnist/test/
+    - load_train_data_path: /nas001/users/yoonji.suh/ic_test_20231020/train/
+    - load_inference_data_path: /nas001/users/yoonji.suh/ic_test_20231020/test/
     - save_train_artifacts_path:
     - save_inference_artifacts_path:
  
@@ -12,34 +12,36 @@ external_path_permission:
 ## - 해당 위치에서 삭제되면, code 의 default 로 실행
 user_parameters:
     - train_pipeline:
-        - step: input  ## 필수
+        - step: input  ## 필수git
           args:
             - input_path: train/
-              x_columns: [image_path,label]
+              y_column: label
+              path_column: image_path # Don't change
               data_source_type: batch
               groupkey_columns: 
+              label_names: [OK,NG] # string is not supported yet
+              prediction_column_prefix: pred
+              probability_column_prefix: prob
+              set_images: True
         - step: train
           args:
             - model_type: high_resolution # mobilenetv1, high_resolution
               input_shape: [224, 224, 1]
-              num_classes: 10
-              epochs: 1
+              num_classes: 2
+              epochs: 2
               batch_size: 64
+              train_ratio: 0.8
+              rand_augmentation: True # random augmentation
     - inference_pipeline:
         - step: input
           args:
             - input_path: test/ 
-              x_columns: [image_path,label]
               data_source_type: batch
               groupkey_columns:
+              set_images: True
         - step: inference
           args:
             - none:
-              # model_type: high_resolution # mobilenetv1, high_resolution
-              # input_shape: [224, 224, 1]
-              # num_classes: 10
-              # batch_size: 64
-
 ## asset 의 설치 정보를 기록       
 asset_source:
     - train_pipeline:
@@ -55,18 +57,19 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
             # code: local
-            branch: ic
+            branch: ic_v1.0.0
             requirements:
               - requirements.txt 
               - opencv-python
               - tensorflow==2.9.0
               - scikit-optimize
               - focal-loss
+              - keras_applications==1.0.8
     - inference_pipeline:
         - step: input
           source:  ## git / local 지원
-            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git
-            # code: local
+            # code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git
+            code: local
             branch: vision
             requirements:
               - pillow
@@ -74,7 +77,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
             # code: local
-            branch: ic
+            branch: ic_v1.0.0
             requirements:
               - tensorflow==2.9.0
               - opencv-python
