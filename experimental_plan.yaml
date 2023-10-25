@@ -18,30 +18,36 @@ user_parameters:
               y_column: label
               path_column: image_path
               data_source_type: batch
-              groupkey_columns: 
-              label_names: [0,1,2,3,4,5,6,7,8,9] # string is not supported yet
+              label_names: [0,1,2,3,4,5,6,7,8,9]
               prediction_column_prefix: pred
               probability_column_prefix: prob
-              set_images: False
+              set_images: True
         - step: train
           args:
             - model_type: high_resolution # mobilenetv1, high_resolution
-              input_shape: [224, 224, 1] # 3 channel is not supported yet
+              input_shape: [28, 28, 1]
+              resize_shape: [224, 224, 3]
               num_classes: 10
-              epochs: 100
+              epochs: 2
               batch_size: 64
               train_ratio: 0.8
-              rand_augmentation: True # random augmentation
+              rand_augmentation: False
     - inference_pipeline:
         - step: input
           args:
             - input_path: test/ 
+              y_column: label  
               data_source_type: batch
-              groupkey_columns:
+              path_column: image_path
               set_images: True
         - step: inference
           args:
             - none:
+              # model_type: high_resolution # mobilenetv1, high_resolution
+              # input_shape: [224, 224, 1]
+              # num_classes: 10
+              # batch_size: 64
+
 ## asset 의 설치 정보를 기록       
 asset_source:
     - train_pipeline:
@@ -88,9 +94,9 @@ asset_source:
 control:
     ## 1. 패키지 설치 및 asset 존재 여부를 실험 시마다 체크할지, 한번만 할지 결정
     ## 1-2 requirements.txt 및 종속 패키지들 한번만 설치할 지 매번 설치할지도 결정 
-    - get_asset_source: once ## once, every
+    - get_asset_source: every ## once, every
     # TODO 아래 get_external_data 제작하기
-    - get_external_data: once ## once, every
+    - get_external_data: every ## once, every
     ## 2. 생성된 artifacts 를 backup 할지를 결정 True/False
     - backup_artifacts: True
     ## 3. pipeline 로그를 backup 할지를 결정 True/False
