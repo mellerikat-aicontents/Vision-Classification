@@ -26,7 +26,7 @@ user_parameters:
           args:
             - model_type: mobilenetv1 # mobilenetv1, high_resolution
               input_shape: [28, 28, 1]
-              resize_shape: [224, 224, 3] # high_resolution 모델과 rand_augmentation을 사용하는 경우 3채널을 사용해야 합니다.
+              resize_shape: [224, 224, 3] # high_resolution 모델을 사용하거나 rand_augmentation을 사용하는 경우 3채널을 사용해야 합니다.
               num_classes: 10
               epochs: 10
               batch_size: 64
