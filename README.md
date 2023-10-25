@@ -44,7 +44,7 @@
 
 ```
 git clone http://mod.lge.com/hub/dxadvtech/aicontents/ic.git 
-cd tcr 
+cd ic 
 
 conda create -n ic python=3.10
 conda activate ic 
@@ -56,6 +56,7 @@ conda activate ic
 source install.sh
 
 ```
+혹시 conda activate가 안되는 경우 bash를 입력하여 말머리가 `(base)`로 변했는지 확인 후 실행하시면 됩니다.
 
 ## Quick Run Guide
 - 아래 코드 블럭을 실행하면 IC가 실행되고 이때 자동으로 `alo/config/experimental_plan.yaml`을 참조합니다. 
