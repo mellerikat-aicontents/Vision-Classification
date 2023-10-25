@@ -61,7 +61,6 @@ asset_source:
             # code: local
             branch: ic_v1.0.0
             requirements:
-              - requirements.txt 
               - opencv-python
               - tensorflow==2.9.0
               - scikit-optimize
