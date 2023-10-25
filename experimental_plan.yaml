@@ -15,23 +15,23 @@ user_parameters:
         - step: input  ## 필수git
           args:
             - input_path: train/
-              y_column: label
-              path_column: image_path
+              y_column: label # ground truth 파일에 있는 라벨 정답 항목명을 기입해주세요.
+              path_column: image_path # ground truth 파일에 있는 이미지 경로 항목명을 기입해주세요.
               data_source_type: batch
-              label_names: [0,1,2,3,4,5,6,7,8,9]
+              label_names: [0,1,2,3,4,5,6,7,8,9] # 분류하고자 하는 유형명을 기입해주세요. ground truth 파일에 있는 라벨명과 일치해야 합니다.
               prediction_column_prefix: pred
               probability_column_prefix: prob
-              set_images: True
+              set_images: True # 최초 실행 시 이미지를 로컬에 다운로드 받습니다. False로 두면 로컬 파일을 읽어 실행 속도가 빨라집니다.
         - step: train
           args:
-            - model_type: mobilenetv1 # mobilenetv1, high_resolution
-              input_shape: [28, 28, 1]
+            - model_type: mobilenetv1 # mobilenetv1(기본 모델), high_resolution(고해상도 모델)
+              input_shape: [28, 28, 1] # 모든 이미지가 같은 형태여야 합니다.
               resize_shape: [224, 224, 3] # high_resolution 모델을 사용하거나 rand_augmentation을 사용하는 경우 3채널을 사용해야 합니다.
-              num_classes: 10
-              epochs: 10
-              batch_size: 64
+              num_classes: 10 # 총 유형 개수를 기입해주세요.
+              epochs: 10 # 학습이 잘 되지 않은 경우 증가시켜주세요.
+              batch_size: 64 # batch_size가 크면 학습이 빠르게 수행되지만 너무 크면 하드웨어 성능에 따라 실행되지 않을 수 있습니다.
               train_ratio: 0.8
-              rand_augmentation: False
+              rand_augmentation: False # Identity, autocontrast, equalize, rotate, solarize, color, posterize, contrast, brightness, sharpness, shearX, shearY, translateX, translateY 중 임의로 2개 선택하여 임의 변환을 수행합니다.
     - inference_pipeline:
         - step: input
           args:
