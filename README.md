@@ -16,6 +16,14 @@
 2. 이미지 경로와 정답 label로 이루어진 tabular 형태의 Ground truth 파일을 준비합니다.
 3. 각 label 유형마다 최소 100장 이상 데이터가 있어야 안정적인 모델을 생성할 수 있습니다.
 4. 현재 multi-class는 지원하지만 multi-label(한 장의 사진이 여러 유형을 갖는 경우)은 지원하지 않습니다.
+5. Ground truth 파일은 하기와 같은 형태로 준비하시면 됩니다.
+
+| label | image_path |
+| ------ | ------ |
+|label1| /nas001/users/.../sample1.png |
+|label2| /nas001/users/.../sample2.png |
+|label1| /nas001/users/.../sample3.png |
+|...| ... |
 
 데이터 명세서 상세한 내용은 [Documentation](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826421)를 참고해주세요.
 
