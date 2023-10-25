@@ -34,7 +34,7 @@
 ## 주요 기능 소개
 - 현재 가볍고 빠른 모델인 mobilenet V1과 mobilenet V3 기반의 고해상도 모델을 사용할 수 있습니다.
 - tensorflow v2에서 지원하는 tf.data 기반으로 구성되어 빠르고 효율적인 학습이 가능합니다.
-- [RandAugment, 2019](https://arxiv.org/abs/1909.13719)를 사용함으로써 새로운 데이터에 대한 대응력이 좋은 모델을 생성할 수 있습니다.
+- [RandAugment(2019)](https://arxiv.org/abs/1909.13719)를 사용함으로써 새로운 데이터에 대한 대응력이 좋은 모델을 생성할 수 있습니다.
 - 현재 GPU지원 관련하여 개발 중 입니다.
 
 상세한 설명은 [Documentation](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826454)을 참고해주세요. 
