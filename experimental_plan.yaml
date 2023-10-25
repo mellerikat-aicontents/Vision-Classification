@@ -28,7 +28,7 @@ user_parameters:
               input_shape: [28, 28, 1]
               resize_shape: [224, 224, 3]
               num_classes: 10
-              epochs: 2
+              epochs: 10
               batch_size: 64
               train_ratio: 0.8
               rand_augmentation: False
@@ -94,9 +94,9 @@ asset_source:
 control:
     ## 1. 패키지 설치 및 asset 존재 여부를 실험 시마다 체크할지, 한번만 할지 결정
     ## 1-2 requirements.txt 및 종속 패키지들 한번만 설치할 지 매번 설치할지도 결정 
-    - get_asset_source: every ## once, every
+    - get_asset_source: once ## once, every
     # TODO 아래 get_external_data 제작하기
-    - get_external_data: every ## once, every
+    - get_external_data: once ## once, every
     ## 2. 생성된 artifacts 를 backup 할지를 결정 True/False
     - backup_artifacts: True
     ## 3. pipeline 로그를 backup 할지를 결정 True/False
