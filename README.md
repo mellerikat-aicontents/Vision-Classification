@@ -96,7 +96,6 @@ user_parameters:
 - IC의 다양한 기능을 사용하고 싶으신 경우 [User Guide (IC)](http://collab.lge.com/main/pages/viewpage.action?pageId=2205803957)를 참고하여 yaml파일을 수정하시면 됩니다. 
 - 학습 결과 모델 파일 저장 경로: `alo/.train_artifacts/models/train/`
 - 학습 결과 파일 저장 경로: `alo/.train_artifacts/output/train/`
-- 추론 결과 모델 파일 저장 경로: `alo/.inference_artifacts/output/inference/`
 - 추론 결과 파일 저장 경로: `alo/.inference_artifacts/output/inference/`
 
 
