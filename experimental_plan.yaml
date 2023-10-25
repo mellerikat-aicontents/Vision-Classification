@@ -43,10 +43,6 @@ user_parameters:
         - step: inference
           args:
             - none:
-              # model_type: high_resolution # mobilenetv1, high_resolution
-              # input_shape: [224, 224, 1]
-              # num_classes: 10
-              # batch_size: 64
 
 ## asset 의 설치 정보를 기록       
 asset_source:
