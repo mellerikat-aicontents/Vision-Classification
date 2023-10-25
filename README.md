@@ -37,7 +37,7 @@
 - [RandAugment(2019)](https://arxiv.org/abs/1909.13719)를 사용함으로써 새로운 데이터에 대한 대응력이 좋은 모델을 생성할 수 있습니다.
 - 현재 GPU지원 관련하여 개발 중 입니다.
 
-상세한 설명은 [Documentation](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826454)을 참고해주세요. 
+상세한 설명은 [알고리즘 설명](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826454)을 참고해주세요. 
 
 ## Quick Install Guide
 
