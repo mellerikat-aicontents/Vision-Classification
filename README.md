@@ -102,6 +102,7 @@ user_parameters:
 
 ## Sample notebook(개발중)
 Jupyter 환경에서 Workflow 단계마다 asset을 실행하고 setting을 바꿔 실험할 수 있습니다. [~~Sample notebook 링크~~](http://mod.lge.com/hub/dxadvtech/aicontents/ic/-/blob/main/IC_asset_run_template.ipynb)
+현재 notebook 파일은 configuration 수정이 안되고 확인 및 실행만 됩니다. 빠른 시일 내에 업데이트 예정입니다.
 
 ## 관련 Collab
 [AICONTENTS](http://collab.lge.com/main/display/AICONTENTS)
