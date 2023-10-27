@@ -57,9 +57,9 @@ asset_source:
               - pandas==1.5.3
         - step: train
           source:
-            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
+            code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: ic_v1.0.0
+            branch: ic_v1.0.1
             requirements:
               - opencv-python
               - tensorflow==2.9.0
@@ -76,9 +76,9 @@ asset_source:
               - pillow
         - step: inference
           source:
-            code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/train.git
+            code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: ic_v1.0.0
+            branch: ic_v1.0.1
             requirements:
               - tensorflow==2.9.0
               - opencv-python
