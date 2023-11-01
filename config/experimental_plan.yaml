@@ -31,7 +31,11 @@ user_parameters:
               epochs: 10 # 학습이 잘 되지 않은 경우 증가시켜주세요.
               batch_size: 64 # batch_size가 크면 학습이 빠르게 수행되지만 너무 크면 하드웨어 성능에 따라 실행되지 않을 수 있습니다.
               train_ratio: 0.8
-              rand_augmentation: False # Identity, autocontrast, equalize, rotate, solarize, color, posterize, contrast, brightness, sharpness, shearX, shearY, translateX, translateY 중 임의로 2개 선택하여 임의 변환을 수행합니다.
+              rand_augmentation: False # solarizeadd, invert, cutout, autocontrast, equalize, rotate, solarize, color, posterize, contrast, brightness, sharpness, shearX, shearY, translateX, translateY 중 임의로 2개 선택하여 임의 변환을 수행합니다.
+              num_aug: 3 # Randaug시 이미지 1장당 여러번의 임의 변환이 진행됩니다.이미지 1장당 augmentation 하고 싶은 개수를 입력하세요
+              aug_magnitude: 7 #Randaugmentation 강도를 입력하세요 (0이상 10이하)
+              exclude_aug_lst: [Rotate,Solarize,Color,Posterize,Brightness] #Randaug시 위 augmentation들 중 제외하고 싶은 augmentation 기법들을 입력하세요
+
     - inference_pipeline:
         - step: input
           args:
@@ -59,7 +63,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: ic_v1.0.1
+            branch: main
             requirements:
               - opencv-python
               - tensorflow==2.9.0
@@ -76,9 +80,9 @@ asset_source:
               - pillow
         - step: inference
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
-            # code: local
-            branch: ic_v1.0.1
+            # code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
+            code: local
+            branch: main
             requirements:
               - tensorflow==2.9.0
               - opencv-python
