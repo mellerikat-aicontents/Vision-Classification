@@ -55,7 +55,7 @@ asset_source:
           source:  ## git / local 지원
             code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git
             # code: local
-            branch: vision
+            branch: vision_2.0
             requirements:
               - pillow
               - pandas==1.5.3
@@ -63,7 +63,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: main
+            branch: ic_v1.0.2
             requirements:
               - opencv-python
               - tensorflow==2.9.0
@@ -80,9 +80,9 @@ asset_source:
               - pillow
         - step: inference
           source:
-            # code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
-            code: local
-            branch: main
+            code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
+            # code: local
+            branch: ic_v1.0.2
             requirements:
               - tensorflow==2.9.0
               - opencv-python
