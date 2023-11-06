@@ -47,6 +47,7 @@ git clone http://mod.lge.com/hub/dxadvtech/aicontents/ic.git
 cd ic 
 
 conda create -n ic python=3.10
+conda init bash
 conda activate ic 
 
 #jupyter 사용시 ipykernel 추가 필요
