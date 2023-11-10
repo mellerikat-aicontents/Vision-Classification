@@ -27,6 +27,7 @@ user_parameters:
             - model_type: mobilenetv1 # mobilenetv1(기본 모델), high_resolution(고해상도 모델)
               input_shape: [28, 28, 1] # 모든 이미지가 같은 형태여야 합니다.
               resize_shape: [224, 224, 3] # high_resolution 모델을 사용하거나 rand_augmentation을 사용하는 경우 3채널을 사용해야 합니다.
+              num_classes: 10 # 총 유형 개수를 기입해주세요.
               epochs: 10 # 학습이 잘 되지 않은 경우 증가시켜주세요.
               batch_size: 64 # batch_size가 크면 학습이 빠르게 수행되지만 너무 크면 하드웨어 성능에 따라 실행되지 않을 수 있습니다.
               train_ratio: 0.8
@@ -62,7 +63,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: main
+            branch: ic_v1.1.0
             requirements:
               - opencv-python
               - tensorflow==2.9.0
@@ -81,7 +82,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: main
+            branch: ic_v1.1.0
             requirements:
               - tensorflow==2.9.0
               - opencv-python
