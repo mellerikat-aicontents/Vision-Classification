@@ -114,6 +114,36 @@ class Wrapper(ALO):
         return obj
 
 
+    def plot_training_history(self):
+        try:
+            training_history = self.asset_structure.data['eval_score']['training_arguments']['history']
+        except:
+            raise Exception('failed loadinig history')
+
+        trn_loss = training_history['loss']
+        val_loss = training_history['val_loss']
+        trn_acc = training_history['accuracy']
+        val_acc = training_history['val_accuracy']
+
+        fig, axes = plt.subplots(nrows=1, ncols=2, constrained_layout=True,figsize=(8,3))
+
+        axes[0].set_title('Model Loss')
+        axes[0].plot(range(len(trn_loss)),trn_loss,label='training_loss')
+        axes[0].plot(range(len(val_loss)),val_loss,label='validation_loss')
+        axes[0].set_xlabel('Epoch')
+        axes[0].set_ylabel('Loss')
+        axes[0].legend()
+
+        axes[1].set_title('Model Accuracy')
+        axes[1].plot(range(len(trn_acc)),trn_acc,label='training_accuracy')
+        axes[1].plot(range(len(val_acc)),val_acc,label='validation_accuracy')
+        axes[1].set_xlabel('Epoch')
+        axes[1].set_ylabel('Accuracy')
+        axes[1].legend()
+        
+        plt.show()   
+
+
 def make_ground_truth(path,save_path,data_type='png'):
 
     path_list = []
@@ -157,7 +187,11 @@ def plot_auged_images(img_path_lst,resize_shape,aug_lst=None):
         aug_lst = copy.deepcopy(available_aug_lst)
     
     def load_image(img_path, target_size):
-        image = Image.open(img_path)
+
+        if img_path.endswith('npy'):
+            image = np.load(img_path)
+        else:
+             image = Image.open(img_path)
         if image is not None:
             image = np.array(image)
             
