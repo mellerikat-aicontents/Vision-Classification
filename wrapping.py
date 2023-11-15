@@ -12,6 +12,11 @@ from sklearn.metrics import classification_report, confusion_matrix
 import pandas as pd
 import matplotlib.pyplot as plt
 import missingno as msno
+import tensorflow as tf
+from PIL import Image
+import numpy as np
+import copy
+
 
 EVAL_PATH = './evaluation_data'
 PIPELINE_DICT = {'train_pipeline':'train', 'inference_pipeline':'inference'}
@@ -56,7 +61,7 @@ class Wrapper(ALO):
             self.asset_structure.args = args
         if data is not None:
             self.asset_structure.data = data
-            
+        
         self.asset_structure = self.process_asset_step(self.asset_source[self.pipeline][step], step, self.pipeline, self.asset_structure)
         
         self.data = self.asset_structure.data
@@ -70,6 +75,20 @@ class Wrapper(ALO):
         self.args_checker = 0
         
     def save_pkl(self, obj):
+
+        if self.asset_source[self.pipeline][self.step]['step'] == 'train':
+            tf.data.Dataset.save(self.data['original_image_dataset'],'{eval_path}/{pipeline}_{step}_original_image_dataset'.format(
+            eval_path=EVAL_PATH, 
+            pipeline=PIPELINE_DICT[self.pipeline],
+            step=self.step))
+            tf.data.Dataset.save(self.data['augmented_image_dataset'],'{eval_path}/{pipeline}_{step}_augmented_image_dataset'.format(
+            eval_path=EVAL_PATH, 
+            pipeline=PIPELINE_DICT[self.pipeline],
+            step=self.step))
+
+        self.data.pop('original_image_dataset',None)
+        self.data.pop('augmented_image_dataset',None)
+
         path = '{eval_path}/{pipeline}_{step}.pkl'.format(
             eval_path=EVAL_PATH, 
             pipeline=PIPELINE_DICT[self.pipeline],
@@ -84,4 +103,95 @@ class Wrapper(ALO):
             step=step)
         with open(path, 'rb') as f:
             obj = pickle.load(f)
+
+        if self.asset_source[self.pipeline][self.step]['step'] == 'inference':
+            loaded_ori_dataset = tf.data.Dataset.load('{eval_path}/{pipeline}_{step}_original_image_dataset')
+            loaded_aug_dataset= tf.data.Dataset.load('{eval_path}/{pipeline}_{step}_augmented_image_dataset')
+
+            obj.data['original_image_dataset'] = loaded_ori_dataset
+            obj.data['augmented_image_dataset'] = loaded_aug_dataset
+        
         return obj
+
+
+def make_ground_truth(path,save_path,data_type='png'):
+
+    path_list = []
+    col_names = ['label','image_path']
+    
+    data_type_dict = {}
+    data_type_dict['png'] = ['png']
+    data_type_dict['jpg'] = ['jpg']
+    data_type_dict['both'] =  ['png','jpg']
+    
+    
+    WALK = os.walk(path)
+    i = 0
+    for (Root,Dir,fles) in WALK:
+        for fle in fles:
+            if fle.split('.')[-1] in data_type_dict[data_type]:
+                path_list.append([Root.split('/')[-1] , os.path.join(Root,fle)])
+                if i<5:
+                    print(path_list[-1])
+                    i += 1
+            
+    df = pd.DataFrame(path_list,columns = col_names)
+    df.to_csv(save_path,index=False)
+    
+    return path_list,df
+
+
+
+
+def plot_auged_images(img_path_lst,resize_shape,aug_lst=None):
+
+    from alo.assets.train.augment import RandAugment
+    
+    available_aug_lst = [
+        'AutoContrast', 'Equalize', 'Invert', 'Rotate', 'Posterize', 'Solarize',
+        'Color', 'Contrast', 'Brightness', 'Sharpness', 'ShearX', 'ShearY',
+        'TranslateX', 'TranslateY', 'Cutout', 'SolarizeAdd'
+    ]
+    
+    if aug_lst == None:
+        aug_lst = copy.deepcopy(available_aug_lst)
+    
+    def load_image(img_path, target_size):
+        image = Image.open(img_path)
+        if image is not None:
+            image = np.array(image)
+            
+        else:
+            raise Exception('image open failed')
+
+        if len(image.shape) != 3:
+            image = tf.expand_dims(image, axis=-1)
+        image = tf.image.resize(image, target_size)  # 이미지 리사이징
+        if image.shape[2] != 3:
+            image = tf.tile(image, [1, 1, 3])
+        return image
+    
+    total_image_result = [[] for i in range(len(img_path_lst))]
+    
+    for img_idx , each_img_path in enumerate(img_path_lst):
+        
+        original_image = load_image(img_path=each_img_path,target_size=resize_shape[:2])
+        total_image_result[img_idx].append(original_image)
+        for each_aug in aug_lst:
+            
+            randaugmenter = RandAugment(num_layers=1, exclude_ops = [i for i in available_aug_lst if i != each_aug])
+            auged_image = randaugmenter.distort(original_image)
+            
+            total_image_result[img_idx].append(auged_image)
+    
+    aug_lst.insert(0,'Original')
+    
+    fig, axes = plt.subplots(nrows=len(img_path_lst) , ncols=len(aug_lst),constrained_layout=True)
+    for each_image_idx in range(len(img_path_lst)):
+        for each_aug_idx in range(len(aug_lst)):
+            if each_image_idx == 0:
+                axes[each_image_idx][each_aug_idx].set_title(aug_lst[each_aug_idx],fontsize=7)
+            axes[each_image_idx][each_aug_idx].imshow(total_image_result[each_image_idx][each_aug_idx]/255)
+            axes[each_image_idx][each_aug_idx].axis('off')
+                
+    plt.show()
