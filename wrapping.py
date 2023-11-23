@@ -25,6 +25,7 @@ CARDINALITY_LIMIT = 20
 class Wrapper(ALO):
     def __init__(self, nth_pipeline, eval_report=True):
         super().__init__()
+        self.set_proc_logger()
         self.preset()
         pipelines = list(self.asset_source.keys())
         self.pipeline = pipelines[nth_pipeline]
