@@ -62,10 +62,10 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: main
+            branch: ic_v1.1.1
             requirements:
               - opencv-python
-              - tensorflow==2.9.0
+              - tensorflow==2.14.0
               - scikit-optimize
               - focal-loss
               - keras_applications==1.0.8
@@ -81,9 +81,9 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: main
+            branch: ic_v1.1.1
             requirements:
-              - tensorflow==2.9.0
+              - tensorflow==2.14.0
               - opencv-python
               - scikit-optimize
               - focal-loss
