@@ -1,4 +1,4 @@
-# Welcome to IC !
+# Welcome to CV !
 
 ⚡ image/ground truth tabular 형태의 데이터에 대해 분류할 수 있는 AI 컨텐츠입니다. ⚡
 
@@ -43,16 +43,16 @@
 
 
 ```
-git clone http://mod.lge.com/hub/dxadvtech/aicontents/ic.git 
-cd ic 
+git clone http://mod.lge.com/hub/dxadvtech/aicontents/cv.git 
+cd cv 
 
-conda create -n ic python=3.10
+conda create -n cv python=3.10
 conda init bash
-conda activate ic 
+conda activate cv 
 
 #jupyter 사용시 ipykernel 추가 필요
 #pip install ipykernel
-#python -m ipykernel install --user --name ic 
+#python -m ipykernel install --user --name cv 
 
 source install.sh
 
@@ -60,13 +60,13 @@ source install.sh
 혹시 conda activate가 안되는 경우 bash를 입력하여 말머리가 `(base)`로 변했는지 확인 후 실행하시면 됩니다.
 
 ## Quick Run Guide
-- 아래 코드 블럭을 실행하면 IC가 실행되고 이때 자동으로 `alo/config/experimental_plan.yaml`을 참조합니다. 
+- 아래 코드 블럭을 실행하면 CV가 실행되고 이때 자동으로 `alo/config/experimental_plan.yaml`을 참조합니다. 
 ```
 cd alo
 python main.py 
 ```
-- IC 구동을 위해서는 분석 데이터에 대한 정보 및 사용할 IC 기능이 기록된 yaml파일이 필요합니다.  
-- IC default yaml파일인 `alo/config/experimental_plan.yaml`의 설정값을 변경하여 분석하고 싶은 데이터에 IC을 적용할 수 있습니다.
+- CV 구동을 위해서는 분석 데이터에 대한 정보 및 사용할 CV 기능이 기록된 yaml파일이 필요합니다.  
+- CV default yaml파일인 `alo/config/experimental_plan.yaml`의 설정값을 변경하여 분석하고 싶은 데이터에 CV를 적용할 수 있습니다.
 - 필수적으로 수정해야하는 ***arguments***는 아래와 같습니다. 
 ***
 external_path:  
@@ -94,7 +94,7 @@ user_parameters:
 &emsp;&emsp;&emsp;&emsp;*path_column*: ***image_path***  # ground truth 데이터의 이미지 경로 컬럼 명  
 &emsp;&emsp;&emsp;&emsp;...  
 ***
-- IC의 다양한 기능을 사용하고 싶으신 경우 [User Guide (IC)](http://collab.lge.com/main/pages/viewpage.action?pageId=2205803957)를 참고하여 yaml파일을 수정하시면 됩니다. 
+- CV의 다양한 기능을 사용하고 싶으신 경우 [User Guide (CV)](http://collab.lge.com/main/pages/viewpage.action?pageId=2205803957)를 참고하여 yaml파일을 수정하시면 됩니다. 
 - 학습 결과 모델 파일 저장 경로: `alo/.train_artifacts/models/train/`
 - 학습 결과 파일 저장 경로: `alo/.train_artifacts/output/train/`
 - 추론 결과 파일 저장 경로: `alo/.inference_artifacts/output/inference/`
@@ -102,7 +102,7 @@ user_parameters:
 
 
 ## Sample notebook(개발중)
-Jupyter 환경에서 Workflow 단계마다 asset을 실행하고 setting을 바꿔 실험할 수 있습니다. [~~Sample notebook 링크~~](http://mod.lge.com/hub/dxadvtech/aicontents/ic/-/blob/main/IC_asset_run_template.ipynb)
+Jupyter 환경에서 Workflow 단계마다 asset을 실행하고 setting을 바꿔 실험할 수 있습니다. [~~Sample notebook 링크~~](http://mod.lge.com/hub/dxadvtech/aicontents/cv/-/blob/main/CV_asset_run_template.ipynb)
 현재 notebook 파일은 configuration 수정이 안되고 확인 및 실행만 됩니다. 빠른 시일 내에 업데이트 예정입니다.
 
 ## 관련 Collab
