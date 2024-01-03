@@ -63,7 +63,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: ic_v1.1.0
+            branch: cv_v1.1.0
             requirements:
               - opencv-python
               - tensorflow==2.9.0
@@ -82,7 +82,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/ic.git
             # code: local
-            branch: ic_v1.1.0
+            branch: cv_v1.1.0
             requirements:
               - tensorflow==2.9.0
               - opencv-python
