@@ -63,7 +63,7 @@ asset_source:
             # code: local
             #
             #
-            branch: cv_v1.2.1
+            branch: cv_dev
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -82,7 +82,7 @@ asset_source:
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git
             # code: local
-            branch: cv_v1.2.1
+            branch: cv_dev
             requirements:
               - tensorflow==2.14.0
               - opencv-python
