@@ -150,7 +150,7 @@ ui_args_detail:
                 - equalize                
              
 control:
-    - get_asset_source: every # (str), once(default) | every
+    - get_asset_source: once # (str), once(default) | every
     - get_external_data: once # (str), once(default) | every
     - backup_artifacts: True # (str), True(default) | False
     - backup_log: True # (str), True(default) | False
