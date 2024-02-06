@@ -6,7 +6,7 @@ external_path:
  
 external_path_permission:
     - s3_private_key_file:
-
+ 
 user_parameters:
     - train_pipeline:
         - step: input
@@ -15,12 +15,12 @@ user_parameters:
               y_column: label # (str)
           ui_args:
             - y_column
-              
+             
         - step: train
           args:
             - model_type: mobilenetv1 # (str), mobilenetv1(default) | high_resolution
               input_shape: [28, 28, 1] # (list)
-              resize_shape: [28, 28, 3] # (list)
+              resize_shape: [32, 32, 3] # (list), [32>=args, 32>=args, 3]
               rand_augmentation: False # (bool), True | False(default)
               exclude_aug_lst: [] # (list), solarizeadd | invert | cutout | autocontrast | equalize | rotate | solarize | color | posterize | contrast | brightness | sharpness | shearX | shearY | translateX | translateY
           ui_args:
@@ -29,16 +29,19 @@ user_parameters:
               resize_shape
               rand_augmentation
               exclude_aug_lst
-
+ 
     - inference_pipeline:
         - step: input
           args:
-            - input_path: test/ 
-              
+            - input_path: test/
+             
         - step: inference
           args:
             - none:
-  
+        - step: output
+          args:
+            - none:
+ 
 asset_source:
     - train_pipeline:
         - step: input
@@ -77,9 +80,9 @@ asset_source:
         - step: output
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
-            branch: cv_dev
+            branch: output_dev
             requirements:
-
+ 
 ui_args_detail:
     - train_pipeline:
         - step: input
@@ -91,63 +94,63 @@ ui_args_detail:
                 range:
                   - 1
                   - 1000000
-          - step: train
-            args:
-              - name: model_type
-                description: Select base model
-                type: single_selection
-                selectable:
-                  - mobilenetv1
-                  - high_resolution
-                default:
-                  - mobilenetv1
-              - name: input_shape
-                description: Write input shape of image
-                type: string
-                default: '28, 28, 1'
-                range:
-                  - 1
-                  - 1000000
-              - name: resize_shape
-                description: Resize image shape to train 
-                type: string
-                default: '28, 28, 3'
-                range:
-                  - 1
-                  - 1000000
-              - name: rand_augmentation
-                description: Select True if random augmentation is required
-                type: single_selection
-                selectable:
-                  - True
-                  - False
-                default:
-                  - False
-              - name: exclude_aug_lst
-                description: Exclude some transformations from random augmentation
-                type: multi_selection
-                selected:
-                  - solarizeadd
-                  - invert
-                  - cutout
-                  - autocontrast
-                  - equalize
-                  - rotate
-                  - solarize
-                  - color
-                  - posterize
-                  - contrast
-                  - brightness
-                  - sharpness
-                  - shearX
-                  - shearY
-                  - translateX
-                  - translateY
-                default:
-                  - equalize                
-              
+        - step: train
+          args:
+            - name: model_type
+              description: Select base model
+              type: single_selection
+              selectable:
+                - mobilenetv1
+                - high_resolution
+              default:
+                - mobilenetv1
+            - name: input_shape
+              description: Write input shape of image
+              type: string
+              default: '28, 28, 1'
+              range:
+                - 1
+                - 1000000
+            - name: resize_shape
+              description: Resize image shape to train
+              type: string
+              default: '32, 32, 3'
+              range:
+                - 1
+                - 1000000
+            - name: rand_augmentation
+              description: Select True if random augmentation is required
+              type: single_selection
+              selectable:
+                - True
+                - False
+              default:
+                - False
+            - name: exclude_aug_lst
+              description: Exclude some transformations from random augmentation
+              type: multi_selection
+              selected:
+                - solarizeadd
+                - invert
+                - cutout
+                - autocontrast
+                - equalize
+                - rotate
+                - solarize
+                - color
+                - posterize
+                - contrast
+                - brightness
+                - sharpness
+                - shearX
+                - shearY
+                - translateX
+                - translateY
+              default:
+                - equalize                
+             
 control:
-    - get_asset_source: once # (str), once(default) | every
+    - get_asset_source: every # (str), once(default) | every
     - get_external_data: once # (str), once(default) | every
     - backup_artifacts: True # (str), True(default) | False
     - backup_log: True # (str), True(default) | False
