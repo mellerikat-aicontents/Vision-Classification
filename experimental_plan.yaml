@@ -82,7 +82,7 @@ asset_source:
             code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
             branch: output_dev
             requirements:
- 
+              - pillow
 ui_args_detail:
     - train_pipeline:
         - step: input
