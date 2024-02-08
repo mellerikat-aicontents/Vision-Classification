@@ -25,10 +25,10 @@ user_parameters:
               exclude_aug_lst: [] # (list), solarizeadd | invert | cutout | autocontrast | equalize | rotate | solarize | color | posterize | contrast | brightness | sharpness | shearX | shearY | translateX | translateY
           ui_args:
             - model_type
-              input_shape
-              resize_shape
-              rand_augmentation
-              exclude_aug_lst
+            - input_shape
+            - resize_shape
+            - rand_augmentation
+            - exclude_aug_lst
  
     - inference_pipeline:
         - step: input
