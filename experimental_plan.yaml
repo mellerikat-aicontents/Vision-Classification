@@ -3,6 +3,7 @@ external_path:
     - load_inference_data_path: ./solution/sample_data/test/
     - save_train_artifacts_path:
     - save_inference_artifacts_path:
+    - load_model_path:
  
 external_path_permission:
     - s3_private_key_file:
@@ -151,7 +152,7 @@ ui_args_detail:
              
 control:
     - get_asset_source: once # (str), once(default) | every
-    - get_external_data: once # (str), once(default) | every
+    - get_external_data: every # (str), once(default) | every
     - backup_artifacts: True # (str), True(default) | False
     - backup_log: True # (str), True(default) | False
     - backup_size: 1000 # (int), 1000(default)
