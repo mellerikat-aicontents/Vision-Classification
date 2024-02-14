@@ -152,7 +152,7 @@ ui_args_detail:
              
 control:
     - get_asset_source: once # (str), once(default) | every
-    - get_external_data: every # (str), once(default) | every
+    - get_external_data: every # (str), once | every(default)
     - backup_artifacts: True # (str), True(default) | False
     - backup_log: True # (str), True(default) | False
     - backup_size: 1000 # (int), 1000(default)
