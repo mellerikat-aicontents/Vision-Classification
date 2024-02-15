@@ -48,14 +48,14 @@ asset_source:
         - step: input
           source:  
             code: http://mod.lge.com/hub/smartdata/ml-framework/alov2-module/input.git # (str), git url | local
-            branch: vision_dev
+            branch: vision_3.0
             requirements:
               - pillow
               - pandas==1.5.3
         - step: train
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev
+            branch: cv_v1.3.0
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -66,13 +66,13 @@ asset_source:
         - step: input
           source:  
             code: local # (str), git url | local
-            branch: vision_dev
+            branch: vision_3.0
             requirements:
               - pillow
         - step: inference
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev
+            branch: cv_v1.3.0
             requirements:
               - tensorflow==2.14.0
               - opencv-python
