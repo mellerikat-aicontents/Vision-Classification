@@ -1,3 +1,5 @@
+name : Computer Vision AI
+
 external_path:
     - load_train_data_path: ./solution/sample_data/train/
     - load_inference_data_path: ./solution/sample_data/test/
