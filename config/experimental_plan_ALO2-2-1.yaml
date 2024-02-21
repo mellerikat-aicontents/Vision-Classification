@@ -8,7 +8,7 @@ external_path:
     - load_model_path:
  
 external_path_permission:
-    - s3_private_key_file:
+    - aws_key_profile: ## v2.2.1 Modified
  
 user_parameters:
     - train_pipeline:
