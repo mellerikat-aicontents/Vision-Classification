@@ -134,7 +134,7 @@ ui_args_detail:
             - name: exclude_aug_lst
               description: Exclude some transformations from random augmentation
               type: multi_selection
-              selected:
+              selectable:
                 - solarizeadd
                 - invert
                 - cutout
