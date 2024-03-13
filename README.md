@@ -25,7 +25,7 @@
 |label1| /nas001/users/.../sample3.png |
 |...| ... |
 
-데이터 명세서 상세한 내용은 [Documentation](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826421)를 참고해주세요.
+데이터 명세서 상세한 내용은 [Documentation](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466233&src=sidebar)를 참고해주세요.
 
 샘플 데이터 설명: [Fashion mnist dataset](https://www.kaggle.com/datasets/zalando-research/fashionmnist)
  
@@ -37,7 +37,7 @@
 - [RandAugment(2019)](https://arxiv.org/abs/1909.13719)를 사용함으로써 새로운 데이터에 대한 대응력이 좋은 모델을 생성할 수 있습니다.
 - 현재 GPU지원 관련하여 개발 중 입니다.
 
-상세한 설명은 [알고리즘 설명](http://collab.lge.com/main/pages/viewpage.action?pageId=2181826454)을 참고해주세요. 
+상세한 설명은 [알고리즘 설명](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466118&src=sidebar)을 참고해주세요. 
 
 ## Quick Install Guide
 
@@ -60,13 +60,13 @@ source install.sh
 혹시 conda activate가 안되는 경우 bash를 입력하여 말머리가 `(base)`로 변했는지 확인 후 실행하시면 됩니다.
 
 ## Quick Run Guide
-- 아래 코드 블럭을 실행하면 CV가 실행되고 이때 자동으로 `alo/config/experimental_plan.yaml`을 참조합니다. 
+- 아래 코드 블럭을 실행하면 CV가 실행되고 이때 자동으로 `cv/solution/experimental_plan.yaml`을 참조합니다. 
 ```
 cd alo
 python main.py 
 ```
 - CV 구동을 위해서는 분석 데이터에 대한 정보 및 사용할 CV 기능이 기록된 yaml파일이 필요합니다.  
-- CV default yaml파일인 `alo/config/experimental_plan.yaml`의 설정값을 변경하여 분석하고 싶은 데이터에 CV를 적용할 수 있습니다.
+- CV default yaml파일인 `cv/solution/experimental_plan.yaml`의 설정값을 변경하여 분석하고 싶은 데이터에 CV를 적용할 수 있습니다.
 - 필수적으로 수정해야하는 ***arguments***는 아래와 같습니다. 
 ***
 external_path:  
@@ -94,7 +94,7 @@ user_parameters:
 &emsp;&emsp;&emsp;&emsp;*path_column*: ***image_path***  # ground truth 데이터의 이미지 경로 컬럼 명  
 &emsp;&emsp;&emsp;&emsp;...  
 ***
-- CV의 다양한 기능을 사용하고 싶으신 경우 [User Guide (CV)](http://collab.lge.com/main/pages/viewpage.action?pageId=2205803957)를 참고하여 yaml파일을 수정하시면 됩니다. 
+- CV의 다양한 기능을 사용하고 싶으신 경우 [Parameter](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Parameter?src=sidebar)를 참고하여 yaml파일을 수정하시면 됩니다. 
 - 학습 결과 모델 파일 저장 경로: `alo/.train_artifacts/models/train/`
 - 학습 결과 파일 저장 경로: `alo/.train_artifacts/output/train/`
 - 추론 결과 파일 저장 경로: `alo/.inference_artifacts/output/inference/`
@@ -106,11 +106,11 @@ Jupyter 환경에서 Workflow 단계마다 asset을 실행하고 setting을 바�
 현재 notebook 파일은 configuration 수정이 안되고 확인 및 실행만 됩니다. 빠른 시일 내에 업데이트 예정입니다.
 
 ## 관련 Collab
-[AICONTENTS](http://collab.lge.com/main/display/AICONTENTS)
+[AICONTENTS](http://collab.lge.com/main/display/LGEPROD/AI+Contents?src=sidebar)
 
 ## 요청 및 문의
 담당자: 서윤지(yoonji.suh@lge.com)
 
-신규 AI Contents나 추가 기능 요청을 등록하시면 검토 후 반영합니다  [Request CLM](http://clm.lge.com/issue/projects/AICONTENTS/summary)
+신규 AI Contents나 추가 기능 요청을 등록하시면 검토 후 반영합니다  [Request CLM](http://clm.lge.com/issue/projects/DXADVTECH/summary)
 
 
