@@ -12,9 +12,9 @@
 
 
 # AI Contents User Guide
-[Computer Vision AI (CV)](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
-[알고리즘](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466118)
-[데이터 구조](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466233)
-[Parameter](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Parameter)
-[Release note](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Release+note)
+- [Quick guide](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
+- [알고리즘](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466118)
+- [데이터 구조](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466233)
+- [Parameter](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Parameter)
+- [Release note](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Release+note)
 
