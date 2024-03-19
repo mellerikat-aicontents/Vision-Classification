@@ -1,6 +1,6 @@
 # Welcome to CV !
 
-⚡ image/ground truth tabular 형태의 데이터에 대해 분류할 수 있는 AI 컨텐츠입니다. ⚡
+⚡ image 데이터를 분류할 수 있는 AI 컨텐츠입니다. ⚡
 
 [![Generic badge](https://img.shields.io/badge/release-v1.3.1-green.svg?style=for-the-badge)](http://링크)
 [![Generic badge](https://img.shields.io/badge/last_update-2024.03.13-002E5F?style=for-the-badge)]()
