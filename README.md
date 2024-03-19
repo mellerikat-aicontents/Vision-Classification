@@ -11,10 +11,10 @@
 [![Generic badge](https://img.shields.io/badge/request_clm-green.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2157128981)
 
 
-
-## 요청 및 문의
-담당자: 서윤지(yoonji.suh@lge.com)
-
-신규 AI Contents나 추가 기능 요청을 등록하시면 검토 후 반영합니다  [Request CLM](http://clm.lge.com/issue/projects/DXADVTECH/summary)
-
+# AI Contents User Guide
+[Computer Vision AI (CV)](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
+[알고리즘](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466118)
+[데이터 구조](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466233)
+[Parameter](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Parameter)
+[Release note](http://collab.lge.com/main/display/LGEPROD/Computer+Vision+AI+Release+note)
 
