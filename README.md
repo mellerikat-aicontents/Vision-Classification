@@ -1,4 +1,4 @@
-# Welcome to CV !
+# Welcome to Computer Vision AI!
 
 ⚡ image 데이터를 분류할 수 있는 AI 컨텐츠입니다. ⚡
 
