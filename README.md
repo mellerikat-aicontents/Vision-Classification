@@ -11,7 +11,7 @@
 [![Generic badge](https://img.shields.io/badge/request_clm-green.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2157128981)
 
 
-# AI Contents User Guide(collab)
+# User Guide(collab)
 - [Quick guide](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
 - [알고리즘](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466118)
 - [데이터 구조](http://collab.lge.com/main/pages/viewpage.action?pageId=2381466233)
