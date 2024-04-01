@@ -53,20 +53,20 @@ asset_source:
         - step: input
           source:  
             code: http://mod.lge.com/hub/dxadvtech/assets/input.git  # (str), git url | local
-            branch: v4.0.0_vision
+            branch: vision_dev
             requirements:
               - pillow
               - pandas==1.5.3
         - step: readiness
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
-            branch: v1.0.0_cv
+            branch: cv_dev
             requirements:
               - pandas==1.5.3
         - step: train
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: v1.4.0_cv
+            branch: cv_dev
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -77,19 +77,19 @@ asset_source:
         - step: input
           source:  
             code: local # (str), git url | local
-            branch: v4.0.0_vision
+            branch: vision_dev
             requirements:
               - pillow
         - step: readiness
           source:
             code: local
-            branch: v1.0.0_cv
+            branch: cv_dev
             requirements:
               - pandas==1.5.3
         - step: inference
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: v1.4.0_cv
+            code: local # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
+            branch: cv_dev # v1.4.0_cv
             requirements:
               - tensorflow==2.14.0
               - opencv-python
