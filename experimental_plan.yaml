@@ -26,6 +26,7 @@ user_parameters:
               resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
               rand_augmentation: False # (bool), True | False(default)
               exclude_aug_lst: [] # (list), solarizeadd | invert | cutout | autocontrast | equalize | rotate | solarize | color | posterize | contrast | brightness | sharpness | shearX | shearY | translateX | translateY
+              
           ui_args:
             - model_type
             - input_shape
@@ -66,7 +67,7 @@ asset_source:
         - step: train
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev
+            branch: cv_dev_alo
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -89,7 +90,7 @@ asset_source:
         - step: inference
           source:
             code: local # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev # v1.4.0_cv
+            branch: cv_dev_alo # v1.4.0_cv
             requirements:
               - tensorflow==2.14.0
               - opencv-python
