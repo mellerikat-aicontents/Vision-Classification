@@ -67,7 +67,7 @@ asset_source:
         - step: train
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev_alo
+            branch: cv_dev
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -90,7 +90,7 @@ asset_source:
         - step: inference
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev_alo # v1.4.0_cv
+            branch: cv_dev # v1.4.0_cv
             requirements:
               - tensorflow==2.14.0
               - opencv-python
