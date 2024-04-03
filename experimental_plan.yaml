@@ -76,13 +76,13 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: local # (str), git url | local
+            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
             branch: v4.0.0_vision
             requirements:
               - pillow
         - step: readiness
           source:
-            code: local
+            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
             branch: v1.0.0_cv
             requirements:
               - pandas==1.5.3
