@@ -89,7 +89,7 @@ asset_source:
               - pandas==1.5.3
         - step: inference
           source:
-            code: local # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
+            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
             branch: cv_dev_alo # v1.4.0_cv # cv_dev - h5 load & predict # cv_dev_alo - tflite load & predict
             requirements:
               - tensorflow==2.14.0
