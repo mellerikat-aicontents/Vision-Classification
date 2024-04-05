@@ -90,7 +90,7 @@ asset_source:
         - step: inference
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev_alo # v1.4.0_cv # cv_dev - h5 load & predict # cv_dev_alo - tflite load & predict
+            branch: cv_dev_npu # v1.4.0_cv # cv_dev - h5 load & predict # cv_dev_alo - tflite load & predict
             requirements:
               - tensorflow==2.14.0
               - opencv-python
