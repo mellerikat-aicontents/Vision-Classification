@@ -25,8 +25,10 @@ user_parameters:
               input_shape: [28, 28, 1] # (list)
               resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
               rand_augmentation: False # (bool), True | False(default)
-              exclude_aug_lst: [] # (list), solarizeadd | invert | cutout | autocontrast | equalize | rotate | solarize | color | posterize | contrast | brightness | sharpness | shearX | shearY | translateX | translateY
+              exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
               epochs: 1
+              num_aug: 4
+              aug_magnitude: 10
           ui_args:
             - model_type
             - input_shape
@@ -89,8 +91,8 @@ asset_source:
               - pandas==1.5.3
         - step: inference
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_dev_alo # v1.4.0_cv # cv_dev - h5 load & predict # cv_dev_alo - tflite load & predict
+            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
+            branch: cv_dev_fast_set_image # v1.4.0_cv | cv_dev - h5 load & predict | cv_dev_alo - tflite load & predict | cv_dev_fast_set_image - tflite and fast set_image
             requirements:
               - tensorflow==2.14.0
               - opencv-python
