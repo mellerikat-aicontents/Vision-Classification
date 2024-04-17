@@ -1,5 +1,5 @@
 name : CV
-version: 1.4.0
+version: 1.5.0
 
 external_path:
     - load_train_data_path: ./solution/sample_data/train/
@@ -25,7 +25,7 @@ user_parameters:
               input_shape: [28, 28, 1] # (list)
               resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
               rand_augmentation: False # (bool), True | False(default)
-              exclude_aug_lst: [] # (list), solarizeadd | invert | cutout | autocontrast | equalize | rotate | solarize | color | posterize | contrast | brightness | sharpness | shearX | shearY | translateX | translateY
+              exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
           ui_args:
             - model_type
             - input_shape
@@ -53,20 +53,20 @@ asset_source:
         - step: input
           source:  
             code: http://mod.lge.com/hub/dxadvtech/assets/input.git  # (str), git url | local
-            branch: v4.0.0_vision
+            branch: v4.0.1_vision
             requirements:
               - pillow
               - pandas==1.5.3
         - step: readiness
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
-            branch: v1.0.0_cv
+            branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: train
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: v1.4.0_cv
+            branch: cv_v1.4.1
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -76,20 +76,20 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: local # (str), git url | local
-            branch: v4.0.0_vision
+            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
+            branch: v4.0.1_vision
             requirements:
               - pillow
         - step: readiness
           source:
-            code: local
-            branch: v1.0.0_cv
+            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
+            branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: inference
           source:
             code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: v1.4.0_cv
+            branch: cv_v1.4.1 
             requirements:
               - tensorflow==2.14.0
               - opencv-python
