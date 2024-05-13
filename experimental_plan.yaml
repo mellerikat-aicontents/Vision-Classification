@@ -24,8 +24,9 @@ user_parameters:
             - model_type: mobilenetv1 # (str), mobilenetv1(default) | high_resolution
               input_shape: [28, 28, 1] # (list)
               resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
-              rand_augmentation: False # (bool), True | False(default)
-              exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
+              rand_augmentation: True # (bool), True | False(default)
+              exclude_aug_lst: [Cutout] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
+              epochs: 50
           ui_args:
             - model_type
             - input_shape
@@ -42,7 +43,7 @@ user_parameters:
              
         - step: inference
           args:
-            - do_xai: False
+            - do_xai: True
 
         - step: output
           args:
