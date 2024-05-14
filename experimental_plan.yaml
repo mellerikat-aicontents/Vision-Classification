@@ -53,21 +53,21 @@ asset_source:
     - train_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git  # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/input.git  # (str), git url | local
             branch: v4.1.0_vision
             requirements:
               - pillow
               - pandas==1.5.3
         - step: readiness
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
+            code: https://github.com/meerkat-ai-contents/readiness.git 
             branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: train
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_v1.5.0
+            code: https://github.com/meerkat-ai-contents/cv_modeling.git # (str), git url | local
+            branch: cv_v1.5.1
             requirements:
               - opencv-python
               - tensorflow==2.14.0
@@ -77,20 +77,20 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/input.git # (str), git url | local
             branch: v4.1.0_vision
             requirements:
               - pillow
         - step: readiness
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
+            code: https://github.com/meerkat-ai-contents/readiness.git 
             branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: inference
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
-            branch: cv_v1.5.0 
+            code: https://github.com/meerkat-ai-contents/cv_modeling.git # (str), git url | local
+            branch: cv_v1.5.1 
             requirements:
               - tensorflow==2.14.0
               - opencv-python
@@ -98,7 +98,7 @@ asset_source:
               - focal-loss
         - step: output
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
+            code: https://github.com/meerkat-ai-contents/output.git # (str), git url | local
             branch: output_1.0
             requirements:
               - pillow
