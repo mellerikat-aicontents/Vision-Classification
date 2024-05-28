@@ -5,8 +5,6 @@ Moreover, it can be used in retail for product classification and recognition. I
 
 From product inspection to product classification and inventory management, Computer Vision AI is the next-generation technology partner that adds value to your business.
 
-<br/>
-
 # User Guide
 - [Quick guide](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/)
 - [CV Features](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/features)
