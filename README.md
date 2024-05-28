@@ -8,8 +8,8 @@ From product inspection to product classification and inventory management, Comp
 <br/>
 
 # User Guide
-- [Quick guide](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/)
-- [CV Features](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/features)
-- [CV Input and Artifacts](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/data)
-- [Parameter](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/parameter)
-- [Release note](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/release)
+- [Quick guide](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/)
+- [CV Features](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/features)
+- [CV Input and Artifacts](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/data)
+- [Parameter](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/parameter)
+- [Release note](https://mellerikat.com/user_guide/data_scientist_guide/ai_contents/cv/release)
