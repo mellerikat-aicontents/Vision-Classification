@@ -12,9 +12,8 @@
 
 
 # User Guide(collab)
-- [Quick guide](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
-- [기능 설명](http://collab.lge.com/main/x/BkryjQ)
-- [입력 데이터 및 산출물](http://collab.lge.com/main/x/eUryjQ)
-- [Parameter](http://collab.lge.com/main/x/jUryjQ)
-- [Release note](http://collab.lge.com/main/x/o0ryjQ)
-
+- [Quick guide](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/)
+- [기능 설명](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/features)
+- [입력 데이터 및 산출물](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/data)
+- [Parameter](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/parameter)
+- [Release note](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/release)
