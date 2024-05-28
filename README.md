@@ -1,19 +1,15 @@
 # Welcome to Computer Vision AI!
+Computer Vision AI is a deep learning-based AI content that can automatically classify images using pre-prepared ground truth. Whether you want to enhance the efficiency of your manufacturing process or rigorously manage the quality of your final products, our Computer Vision AI provides the ideal solution. This technology detects visual defects in manufacturing processes and automates quality inspections. It identifies defects and determines their causes to improve production efficiency. Additionally, it automatically collects data during the inspection process and retrains the AI model based on user-reviewed images to maintain high performance consistently.
 
-⚡ image 데이터를 분류할 수 있는 AI 컨텐츠입니다. ⚡
+Moreover, it can be used in retail for product classification and recognition. It automates product classification and recognition to optimize inventory management and enhance customer service. Customers can take a picture of a product to receive information about it, aiding in purchase decisions. Utilizing the explainable AI (XAI) features included in Computer Vision AI, users can identify the image areas contributing to the inference, quickly locating the object.
 
-[![Generic badge](https://img.shields.io/badge/release-v1.5.1-green.svg?style=for-the-badge)](http://링크)
-[![Generic badge](https://img.shields.io/badge/last_update-2024.05.10-002E5F?style=for-the-badge)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-[![Generic badge](https://img.shields.io/badge/python-3.10-purple.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Generic badge](https://img.shields.io/badge/ALO-v2.3.3-green.svg?style=for-the-badge)](requirement링크)
-[![Generic badge](https://img.shields.io/badge/collab-blue.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2338397981)
-[![Generic badge](https://img.shields.io/badge/request_clm-green.svg?style=for-the-badge)](http://collab.lge.com/main/pages/viewpage.action?pageId=2157128981)
+From product inspection to product classification and inventory management, Computer Vision AI is the next-generation technology partner that adds value to your business.
+
 
 
 # User Guide(collab)
 - [Quick guide](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/)
-- [기능 설명](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/features)
-- [입력 데이터 및 산출물](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/data)
+- [CV Features](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/features)
+- [CV Input and Artifacts](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/data)
 - [Parameter](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/parameter)
 - [Release note](https://meerkat-ai.com/docs/user_guide/data_scientist_guide/ai_contents/cv/release)
