@@ -1,5 +1,5 @@
-name : CV
-version: 1.5.1
+name : VC
+version: 1.5.2
 
 external_path:
     - load_train_data_path: ./solution/sample_data/train/
@@ -52,20 +52,20 @@ asset_source:
     - train_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git  # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/input.git  # (str), git url | local
             branch: v4.1.0_vision
             requirements:
               - pillow
               - pandas==1.5.3
         - step: readiness
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
+            code: https://github.com/mellerikat-aicontents/readiness.git 
             branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: train
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
             branch: cv_v1.5.0
             requirements:
               - opencv-python
@@ -76,19 +76,19 @@ asset_source:
     - inference_pipeline:
         - step: input
           source:  
-            code: http://mod.lge.com/hub/dxadvtech/assets/input.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/input.git # (str), git url | local
             branch: v4.1.0_vision
             requirements:
               - pillow
         - step: readiness
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/readiness.git 
+            code: https://github.com/mellerikat-aicontents/readiness.git
             branch: v1.0.1_cv
             requirements:
               - pandas==1.5.3
         - step: inference
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/cv.git # (str), git url | local
+            code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
             branch: cv_v1.5.0 
             requirements:
               - tensorflow==2.14.0
@@ -97,8 +97,8 @@ asset_source:
               - focal-loss
         - step: output
           source:
-            code: http://mod.lge.com/hub/dxadvtech/assets/output.git # (str), git url | local
-            branch: output_1.0
+            code: https://github.com/mellerikat-aicontents/output.git # (str), git url | local
+            branch: v1.0.0
             requirements:
               - pillow
 ui_args_detail:
