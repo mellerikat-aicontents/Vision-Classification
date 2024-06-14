@@ -1,9 +1,9 @@
 name : VC
-version: 1.5.2
+version: 1.5.3
 
 external_path:
-    - load_train_data_path: ./solution/sample_data/train/
-    - load_inference_data_path: ./solution/sample_data/test/
+    - load_train_data_path: ./solution/sample_data/train/ # ./solution/sample_data/train_high/
+    - load_inference_data_path: ./solution/sample_data/test_high/ # ./solution/sample_data/test/
     - save_train_artifacts_path:
     - save_inference_artifacts_path:
     - load_model_path:
@@ -22,16 +22,16 @@ user_parameters:
         - step: train
           args:
             - model_type: mobilenetv1 # (str), mobilenetv1(default) | high_resolution
-              input_shape: [28, 28, 1] # (list)
-              resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
-              rand_augmentation: False # (bool), True | False(default)
+              resize_shape: [480, 480, 3] # (list), [32<=args, 32<=args, 3]
+              rand_augmentation: True # (bool), True | False(default)
               exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
+              epochs: 30
           ui_args:
             - model_type
-            - input_shape
             - resize_shape
             - rand_augmentation
             - exclude_aug_lst
+            - epochs
  
     - inference_pipeline:
         - step: input
@@ -43,10 +43,11 @@ user_parameters:
         - step: inference
           args:
             - do_xai: False
+          ui_args:
+            - do_xai
 
         - step: output
           args:
-            - none:
  
 asset_source:
     - train_pipeline:
@@ -68,6 +69,7 @@ asset_source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
             branch: cv_v1.5.0
             requirements:
+              - h5py==3.9.0 # ARM arch.
               - opencv-python
               - tensorflow==2.14.0
               - scikit-optimize
@@ -91,6 +93,7 @@ asset_source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
             branch: cv_v1.5.0 
             requirements:
+              - h5py==3.9.0 # ARM arch.
               - tensorflow==2.14.0
               - opencv-python
               - scikit-optimize
@@ -113,13 +116,6 @@ ui_args_detail:
                 - high_resolution
               default:
                 - mobilenetv1
-            - name: input_shape
-              description: Write input shape of image
-              type: string
-              default: '28, 28, 1'
-              range:
-                - 1
-                - 1000000
             - name: resize_shape
               description: Resize image shape to train
               type: string
@@ -157,7 +153,24 @@ ui_args_detail:
                 - translateY
               default:
                 - equalize                
-             
+            - name: epochs
+              description: The total number of iterations of all the training data in one cycle for training the machine learning model
+              type: int
+              default: 30
+              range:
+                - 1
+                - 5000
+    - inference_pipeline:
+        - step: inference
+          args:
+            - name: do_xai
+              description: Ooption for activating xai
+              type: single_selection
+              selectable:
+                - True
+                - False
+              default:
+                - False
 control:
     - get_asset_source: every # (str), once(default) | every
     - backup_artifacts: True # (str), True(default) | False

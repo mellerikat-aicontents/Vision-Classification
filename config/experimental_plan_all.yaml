@@ -1,0 +1,186 @@
+name : VC
+version: 1.5.3
+
+external_path:
+    - load_train_data_path: ./solution/sample_data/train/
+    - load_inference_data_path: ./solution/sample_data/test/
+    - save_train_artifacts_path:
+    - save_inference_artifacts_path:
+    - load_model_path:
+ 
+external_path_permission:
+    - aws_key_profile: 
+ 
+user_parameters:
+    - train_pipeline:
+        - step: input
+          args:
+
+        - step: readiness 
+          args:
+
+        - step: train
+          args:
+            - model_type: mobilenetv1 # (str), mobilenetv1(default) | high_resolution
+              resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
+              rand_augmentation: False # (bool), True | False(default)
+              exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
+              epochs: 1
+              batch_size: 64
+              train_ratio: 0.8
+              num_aug: 2
+              aug_magnitude: 10
+          ui_args:
+            - model_type
+            - resize_shape
+            - rand_augmentation
+            - exclude_aug_lst
+            - epochs
+ 
+    - inference_pipeline:
+        - step: input
+          args:
+
+        - step: readiness
+          args:
+             
+        - step: inference
+          args:
+            - do_xai: False
+              xai_class: auto
+              mask_threshold: 0.7
+              layer_index: 2
+          ui_args:
+            - do_xai
+
+        - step: output
+          args:
+ 
+asset_source:
+    - train_pipeline:
+        - step: input
+          source:  
+            code: https://github.com/mellerikat-aicontents/input.git  # (str), git url | local
+            branch: v4.1.0_vision
+            requirements:
+              - pillow
+              - pandas==1.5.3
+        - step: readiness
+          source:
+            code: https://github.com/mellerikat-aicontents/readiness.git 
+            branch: v1.0.1_cv
+            requirements:
+              - pandas==1.5.3
+        - step: train
+          source:
+            code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
+            branch: cv_v1.5.0
+            requirements:
+              - h5py==3.9.0 # ARM arch.
+              - opencv-python
+              - tensorflow==2.14.0
+              - scikit-optimize
+              - focal-loss
+              - keras_applications==1.0.8
+    - inference_pipeline:
+        - step: input
+          source:  
+            code: https://github.com/mellerikat-aicontents/input.git # (str), git url | local
+            branch: v4.1.0_vision
+            requirements:
+              - pillow
+        - step: readiness
+          source:
+            code: https://github.com/mellerikat-aicontents/readiness.git
+            branch: v1.0.1_cv
+            requirements:
+              - pandas==1.5.3
+        - step: inference
+          source:
+            code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
+            branch: cv_v1.5.0 
+            requirements:
+              - h5py==3.9.0 # ARM arch.
+              - tensorflow==2.14.0
+              - opencv-python
+              - scikit-optimize
+              - focal-loss
+        - step: output
+          source:
+            code: https://github.com/mellerikat-aicontents/output.git # (str), git url | local
+            branch: v1.0.0
+            requirements:
+              - pillow
+ui_args_detail:
+    - train_pipeline:
+        - step: train
+          args:
+            - name: model_type
+              description: Select base model
+              type: single_selection
+              selectable:
+                - mobilenetv1
+                - high_resolution
+              default:
+                - mobilenetv1
+            - name: resize_shape
+              description: Resize image shape to train
+              type: string
+              default: '32, 32, 3'
+              range:
+                - 1
+                - 1000000
+            - name: rand_augmentation
+              description: Select True if random augmentation is required
+              type: single_selection
+              selectable:
+                - True
+                - False
+              default:
+                - False
+            - name: exclude_aug_lst
+              description: Exclude some transformations from random augmentation
+              type: multi_selection
+              selectable:
+                - solarizeadd
+                - invert
+                - cutout
+                - autocontrast
+                - equalize
+                - rotate
+                - solarize
+                - color
+                - posterize
+                - contrast
+                - brightness
+                - sharpness
+                - shearX
+                - shearY
+                - translateX
+                - translateY
+              default:
+                - equalize                
+            - name: epochs
+              description: The total number of iterations of all the training data in one cycle for training the machine learning model
+              type: int
+              default: 30
+              range:
+                - 1
+                - 5000
+    - inference_pipeline:
+        - step: inference
+          args:
+            - name: do_xai
+              description: Ooption for activating xai
+              type: single_selection
+              selectable:
+                - True
+                - False
+              default:
+                - False
+control:
+    - get_asset_source: every # (str), once(default) | every
+    - backup_artifacts: True # (str), True(default) | False
+    - backup_log: True # (str), True(default) | False
+    - backup_size: 1000 # (int), 1000(default)
+    - interface_mode: memory # (str), memory(default) | file
