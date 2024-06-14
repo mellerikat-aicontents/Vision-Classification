@@ -2,8 +2,8 @@ name : VC
 version: 1.5.3
 
 external_path:
-    - load_train_data_path: ./solution/sample_data/train/
-    - load_inference_data_path: ./solution/sample_data/test/
+    - load_train_data_path: ./solution/sample_data/train_high/
+    - load_inference_data_path: ./solution/sample_data/test_high/
     - save_train_artifacts_path:
     - save_inference_artifacts_path:
     - load_model_path:
@@ -22,10 +22,14 @@ user_parameters:
         - step: train
           args:
             - model_type: mobilenetv1 # (str), mobilenetv1(default) | high_resolution
-              resize_shape: [32, 32, 3] # (list), [32<=args, 32<=args, 3]
-              rand_augmentation: False # (bool), True | False(default)
+              resize_shape: [480, 480, 3] # (list), [32<=args, 32<=args, 3]
+              rand_augmentation: True # (bool), True | False(default)
               exclude_aug_lst: [] # (list), SolarizeAdd | Invert | Cutout | AutoContrast | Equalize | Rotate | Solarize | Color | Posterize | Contrast | Brightness | Sharpness | ShearX | ShearY | TranslateX | TranslateY
-              epochs: 10
+              epochs: 50
+              batch_size: 64
+              train_ratio: 0.8
+              num_aug: 2
+              aug_magnitude: 10
           ui_args:
             - model_type
             - resize_shape
@@ -43,6 +47,9 @@ user_parameters:
         - step: inference
           args:
             - do_xai: False
+              xai_class: auto
+              mask_threshold: 0.7
+              layer_index: 2
           ui_args:
             - do_xai
 
@@ -91,7 +98,7 @@ asset_source:
         - step: inference
           source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
-            branch: cv_v1.5.2
+            branch: cv_v1.5.2 
             requirements:
               - h5py==3.9.0 # ARM arch.
               - tensorflow==2.14.0

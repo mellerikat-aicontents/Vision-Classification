@@ -74,7 +74,7 @@ asset_source:
         - step: train
           source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
-            branch: cv_v1.5.0
+            branch: cv_v1.5.2
             requirements:
               - h5py==3.9.0 # ARM arch.
               - opencv-python
@@ -98,7 +98,7 @@ asset_source:
         - step: inference
           source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
-            branch: cv_v1.5.0 
+            branch: cv_v1.5.2 
             requirements:
               - h5py==3.9.0 # ARM arch.
               - tensorflow==2.14.0
@@ -171,7 +171,7 @@ ui_args_detail:
         - step: inference
           args:
             - name: do_xai
-              description: Ooption for activating xai
+              description: Option for activating xai
               type: single_selection
               selectable:
                 - True
