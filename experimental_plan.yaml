@@ -18,7 +18,7 @@ user_parameters:
 
         - step: readiness 
           args:
-            - train_validate_column:  # (str), train or valid is available
+            - train_validate_column: phase # (str), train or valid is available
               train_ratio: 0.8 # (float), 0 <=args <= 1
 
         - step: train
@@ -87,13 +87,13 @@ asset_source:
         - step: readiness
           source:
             code: https://github.com/mellerikat-aicontents/readiness.git
-            branch: v1.0.1_cv
+            branch: cv_dev
             requirements:
               - pandas==1.5.3
         - step: inference
           source:
             code: https://github.com/mellerikat-aicontents/vc_modeling.git # (str), git url | local
-            branch: cv_v1.5.2
+            branch: cv_dev
             requirements:
               - h5py==3.9.0 # ARM arch.
               - tensorflow==2.14.0
