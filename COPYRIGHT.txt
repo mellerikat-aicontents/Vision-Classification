@@ -1,0 +1,126 @@
+This product may contain the following open source software:
+
+keras:
+- version: "2.10.0"
+  license: "Apache-2.0"
+  download location: "https://pypi.org/project/keras"
+  homepage: "https://keras.io"
+  copyright text: "Copyright (c) 2016-2020 The TensorFlow Authors."
+keras-io:
+- version: ""
+  license: "Apache-2.0"
+  download location: "https://github.com/keras-team/keras-io"
+  homepage: "https://github.com/keras-team/keras-io"
+  copyright text:
+  - "Copyright 2020 The TensorFlow Authors"
+  - "Copyright 2011-2019 The Bootstrap Authors"
+  - "Copyright 2011-2019 Twitter, Inc."
+pypi:brotlipy:
+- version: "0.7.0"
+  license: "MIT"
+  download location: "https://pypi.org/project/brotlipy/0.7.0"
+  homepage: "https://github.com/python-hyper/brotlipy"
+  copyright text: "Copyright (c) 2015 Cory Benfield"
+pypi:certifi:
+- version: "2021.10.8"
+  license: "MPL-2.0"
+  download location: "https://pypi.org/project/certifi/2021.10.8"
+  homepage: "https://certifiio.readthedocs.io/en/latest"
+pypi:cffi:
+- version: "1.15.0"
+  license: "MIT"
+  download location: "https://pypi.org/project/cffi/1.15.0"
+  homepage: "http://cffi.readthedocs.org"
+  copyright text:
+  - "Copyright (c) 2002 Ranjit Mathew"
+  - "Copyright (c) 1996-2003 Red Hat, Inc."
+pypi:charset-normalizer:
+- version: "2.0.12"
+  license: "MIT"
+  download location: "https://pypi.org/project/charset-normalizer/2.0.12"
+  homepage: "https://github.com/ousret/charset_normalizer"
+  copyright text: "Copyright (c) 2019 TAHRI Ahmed R."
+pypi:colorama:
+- version: "0.4.4"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/colorama/0.4.4"
+  homepage: "https://github.com/tartley/colorama"
+  copyright text: "Copyright (c) 2010-2020 Jonathan Hartley"
+pypi:conda:
+- version: "4.12.0"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/conda/4.12.0"
+  homepage: "https://github.com/conda/conda"
+  copyright text: "Copyright (c) 2012, Anaconda, Inc."
+pypi:conda-package-handling:
+- version: "1.8.0"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/conda-package-handling/1.8.0"
+  homepage: "https://github.com/conda/conda-package-handling"
+  copyright text: "Copyright (c) 2019, Conda"
+pypi:cryptography:
+- version: "36.0.2"
+  license: "Apache-2.0"
+  download location: "https://pypi.org/project/cryptography/36.0.2"
+  homepage: "https://github.com/pyca/cryptography"
+  copyright text:
+  - "Copyright (c) Individual contributors"
+  - "Copyright (c) 2001-2016 Python Software Foundation"
+pypi:idna:
+- version: "3.3"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/idna/3.3"
+  homepage: "https://github.com/kjd/idna"
+  copyright text: "Copyright (c) 2013-2021, Kim Davies"
+pypi:pyOpenSSL:
+- version: "22.0.0"
+  license: "Apache-2.0"
+  download location: "https://pypi.org/project/pyopenssl/22.0.0"
+  homepage: "https://pyopenssl.org"
+  copyright text: "Copyright (c) Jean-Paul Calderone 2008-2015"
+pypi:pycosat:
+- version: "0.6.3"
+  license: "MIT"
+  download location: "https://pypi.org/project/pycosat/0.6.3"
+  homepage: "https://github.com/ContinuumIO/pycosat"
+  copyright text: "Copyright (c) 2013, Ilan Schnell, Continuum Analytics, Inc."
+pypi:pycparser:
+- version: "2.21"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/pycparser/2.21"
+  homepage: "https://github.com/eliben/pycparser"
+  copyright text: "Copyright (c) 2008-2020, Eli Bendersky"
+pypi:pysocks:
+- version: "1.7.1"
+  license: "BSD-3-Clause"
+  download location: "https://pypi.org/project/pysocks/1.7.1"
+  homepage: "https://github.com/Anorov/PySocks"
+  copyright text: "Copyright (c) 2006 Dan-Haim. "
+pypi:requests:
+- version: "2.27.1"
+  license: "Apache-2.0"
+  download location: "https://pypi.org/project/requests/2.27.1"
+  homepage: "https://requests.readthedocs.io"
+  copyright text: "Copyright (c) 2012,2017,2022 by Kenneth Reitz"
+pypi:ruamel-yaml-conda:
+- version: "0.15.80"
+  license: "MIT"
+  download location: "https://pypi.org/project/ruamel-yaml-conda/0.15.80"
+pypi:six:
+- version: "1.16.0"
+  license: "MIT"
+  download location: "https://pypi.org/project/six/1.16.0"
+  homepage: "https://github.com/benjaminp/six"
+  copyright text: "Copyright (c) 2010-2020 Benjamin Peterson"
+pypi:tqdm:
+- version: "4.63.0"
+  license: "MIT"
+  download location: "https://pypi.org/project/tqdm/4.63.0"
+  homepage: "https://tqdm.github.io"
+  copyright text: "Copyright (c) 2013 noamraph"
+pypi:urllib3:
+- version: "1.26.9"
+  license: "MIT"
+  download location: "https://pypi.org/project/urllib3/1.26.9"
+  homepage: "https://urllib3.readthedocs.io"
+  copyright text: "Copyright (c) 2008-2020 Andrey Petrov and contributors"
